@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+
+void swap(int *x, int *y) {
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+void Quick_Sort(int a[], int left, int right) {
+
+	int i, j, k, pivot;
+	if (left < right) {
+		i = left - 1; j = right;
+		pivot = a[right];
+		do {
+			do { i++; } while (a[i] < pivot);
+			do { j--; } while (j > left && a[j] > pivot);
+			if (i < j) swap(&a[i], &a[j]);
+		} while (i < j);
+
+		swap(&a[right], &a[i]);
+		Quick_Sort(a, left, i - 1);
+		Quick_Sort(a, i + 1, right);
+
+	}
+}
+
+void main() {
+	int array[] = { 5,2,8,1,9,7 };
+	int i, c;
+	c = sizeof(array) / sizeof(int);
+
+	Quick_Sort(array, 0, c - 1);
+
+	printf("정렬 후 데이터:");
+	for (i = 0; i < c; i++)
+		printf("%d   ", array[i]);
+	printf("\n");
+	
+}
