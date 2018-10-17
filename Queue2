@@ -1,4 +1,3 @@
-/*
 #include <stdio.h>
 #include <malloc.h>
 
@@ -66,7 +65,7 @@ bool DELETE(int *pdata)
 		front = NULL; //front는 아무것도 가리키지 않는다
 		rear = NULL; //rear는 아무것도 가리키지 않는다
 	}
-	printf("DELETE : %d\n", *pdata); //셤 x
+	printf("DELETE : %d\n", *pdata); 
 
 	return true;
 }
@@ -102,4 +101,4 @@ int main()
 	PrintQ();
 
 	return 0;
-}*/
+}
