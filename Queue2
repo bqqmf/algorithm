@@ -1,0 +1,105 @@
+/*
+#include <stdio.h>
+#include <malloc.h>
+
+//연결리스트로 큐 구현
+
+#define MAX 100
+
+struct NODE
+{
+	int data;
+	NODE *link;
+};
+
+NODE *front = NULL; //DELETE할때 다음 노드를 가리킴
+NODE *rear = NULL; //ADD할때 다음 노드를 가리킴
+int count = 0; //생성된 노드의 개수를 세는 변수
+
+bool ADD(int data)
+{
+	if (count >= MAX) //노드의 갯수가 MAX보다 크거나 같으면
+	{
+		printf("큐 오버플로\n");
+		return false;
+	}
+
+	NODE *pNODE = (NODE *)malloc(sizeof(NODE)); //노드생성
+	pNODE->data = data; //노드의 데이터 부분에 data대입
+	pNODE->link = NULL; 
+
+	if (count == 0) //이전에 생성된 노드가 없을 경우
+	{
+		rear = pNODE; //rear는 새로 만들 노드를 가리킨다
+		front = pNODE; //front는 새로 만들 노드를 가리킨다
+	}
+	else //기존에 생성된 노드가 있을때
+	{
+		rear->link = pNODE; //이전 노드가 새 노드를 가리킴
+		rear = pNODE; //생성된 노드를 front가 가리킴 
+	}
+
+	count++; //노드 개수 1 증가
+
+	printf("ADD : %d\n", data); //추가된 data값 출력
+
+	return true;
+}
+
+bool DELETE(int *pdata)
+{
+	if (count == 0) //이전에 만든 노드가 없다면
+	{
+		printf("큐 언더플로\n");
+		return false;
+	}
+	
+	*pdata = front->data; //
+
+	NODE *pDelNODE = front; //삭제할 노드를 pDELNODE로 가리킴
+	front = front->link; //front가 삭제할 노드의 다음 노드를 가리킴
+	free(pDelNODE); //노드 삭제
+
+	count--; //노드 갯수 1감소
+	if (count == 0)  //삭제 후 노드가 더이상 없다면
+	{
+		front = NULL; //front는 아무것도 가리키지 않는다
+		rear = NULL; //rear는 아무것도 가리키지 않는다
+	}
+	printf("DELETE : %d\n", *pdata); //셤 x
+
+	return true;
+}
+
+void PrintQ()
+{
+	printf("큐 :");
+
+	NODE *pNODE = front; 
+	while (pNODE != NULL)
+	{
+		printf("%d ", pNODE->data);
+		pNODE = pNODE->link; //pNODE가 출력된 노드의 다음 노드를 가리키게함
+	}
+
+	printf("\n");
+}
+
+int main()
+{
+	int data = 0;
+
+	ADD(10);
+	ADD(20);
+	ADD(30);
+	ADD(40);
+
+	PrintQ();
+	DELETE(&data);
+	DELETE(&data);
+	DELETE(&data);
+	
+	PrintQ();
+
+	return 0;
+}*/
